@@ -76,6 +76,15 @@ button {
   border: none;
 }
 
+.app-main-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
 .right-section-form-div {
   width: 90%;
 }
@@ -83,6 +92,7 @@ button {
 .left-section {
   padding: 1rem;
   border-right: var(--border);
+  overflow-y: auto;
 }
 .left-section .header {
   width: 100%;
@@ -145,6 +155,7 @@ button {
 
 .middle-section {
   border-right: var(--border);
+  overflow-y: auto;
 }
 
 .middle-section .header {
@@ -224,11 +235,16 @@ button {
 }
 
 .right-section {
+  overflow-y: auto;
 }
 
 .btn-primary {
   background-color: var(--primary) !important;
   border: var(--primary) !important;
+}
+
+.btn-primary:hover {
+  background-color: darken(rgb(255, 167, 66), 10%) !important;
 }
 
 .primary {

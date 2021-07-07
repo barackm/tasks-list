@@ -19,7 +19,7 @@
     <title>Task list</title>
   </head>
   <body>
-    <div class="d-flex">
+    <div class="d-flex app-main-wrapper">
       <section class="left-section w-25">
         <!-- <div class="header flex-center flex-column">
           <h1>All projects:</h1>
@@ -56,7 +56,7 @@
           </li>
         </ul>
       </section>
-      <section class="right-section flex-center flex-column w-25">
+      <section class="right-section flex-start flex-column w-25">
         <div class="right-section-form-div">
           <h2>Edit to-do</h2>
           <form action="">
@@ -96,7 +96,8 @@
             <p>To-do Priority</p>
             <select
               class="form-select mb-3"
-              aria-label="Default select example">
+              aria-label="Default select example"
+            >
               <option selected>
                 <div>
                   <span> <i class="bi bi-flag-fill"></i>Priority 1</span>
@@ -104,15 +105,15 @@
               </option>
               <option value="1">
                 <i class="bi bi-flag-fill todo-priority"></i>
-                <span>Priority 1</span>
+                <span>Priority 2</span>
               </option>
               <option value="2">
                 <i class="bi bi-flag-fill todo-priority"></i>
-                <span>Priority 1</span>
+                <span>Priority 3</span>
               </option>
               <option value="3">
                 <i class="bi bi-flag-fill todo-priority"></i>
-                <span>Priority 1</span>
+                <span>Priority 4</span>
               </option>
             </select>
             <button class="btn btn-primary" type="submit">Add to-do</button>

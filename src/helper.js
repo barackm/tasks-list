@@ -13,9 +13,17 @@ const helper = (function () {
     allProjects.unshift(project);
     localStorage.setItem('projectList', JSON.stringify(allProjects));
     render.updateUI(JSON.parse(localStorage.getItem('projectList')));
-    console.log(JSON.parse(localStorage.getItem('projectList')));
+    window.location.reload();
   };
-  return { addProject };
+
+  const removeProject = (id) => {
+    let allProjects = JSON.parse(localStorage.getItem('projectList'));
+    allProjects = allProjects.filter((project) => project.id.toString() !== id);
+    localStorage.setItem('projectList', JSON.stringify(allProjects));
+    render.updateUI(JSON.parse(localStorage.getItem('projectList')));
+    window.location.reload();
+  };
+  return { addProject, removeProject };
 }());
 
 export default helper;
