@@ -38,3 +38,12 @@ if (removeProjectBtns.length > 0) {
     helper.removeProject(btn.getAttribute('data-id'));
   }));
 }
+
+let selectProjectBtns = document.querySelectorAll('.project-name');
+selectProjectBtns = Array.from(selectProjectBtns);
+if (selectProjectBtns.length > 0) {
+  selectProjectBtns.map((btn) => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    render.updateDefaultProject(btn.getAttribute('data-id'));
+  }));
+}
