@@ -11,7 +11,8 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
-    "stylelint-scss": "^3.19.0"
+    "stylelint-scss": "^3.19.0",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "webpack": "^5.42.0",
