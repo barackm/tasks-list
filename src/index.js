@@ -23,6 +23,18 @@ if (!localStorage.getItem('projectList')) {
 
 render.renderAppContent(JSON.parse(localStorage.getItem('projectList')));
 
+const editTodoForm = document.querySelector('.editTodoForm');
+if (editTodoForm) {
+  editTodoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (editTodoForm.getAttribute('data-editing')) {
+      helper.editTodo(editTodoForm.getAttribute('data-todo'));
+    } else {
+      helper.createTodo({ name: 'todo' }, 2);
+    }
+  });
+}
+
 const formSubmit = document.querySelector('.newProjectForm');
 formSubmit.addEventListener('submit', (e) => {
   e.preventDefault();

@@ -23,7 +23,10 @@ const helper = (function () {
     render.updateUI(JSON.parse(localStorage.getItem('projectList')));
     window.location.reload();
   };
-  return { addProject, removeProject };
+
+  return {
+    addProject, removeProject,
+  };
 }());
 
 export default helper;
