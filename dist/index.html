@@ -4,49 +4,129 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="./main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      crossorigin="anonymous"
+    />
     <title>Task list</title>
   </head>
   <body>
     <div class="d-flex">
       <section class="left-section w-25">
-        <h1>All projects:</h1>
-        <button>Add new project</button>
-        <ul class="all-project-list">
-          <li>
-           <a href=""> <h5>Project name</h5></a>
-            <div href="#"><i class="bi bi-trash-fill"></i></div>
-            <div href="#" ><i class="bi bi-plus-circle-fill"></i> </div>
+        <div class="header flex-center flex-column">
+          <h1>All projects:</h1>
+          <button>Add new project</button>
+        </div>
+        <ul class="all-project-list flex-center flex-column">
+          <li class="flex-between w-100">
+            <a href="" class="project-name"> <h5>Project name</h5></a>
+            <div class="flex-center project-btn-wrapper">
+              <div class="project-b flex-center trash-btn" href="#">
+                <i class="bi bi-trash-fill"></i>
+              </div>
+              <div class="project-b flex-center add-todo-btn" href="#">
+                <i class="bi bi-plus-lg"></i>
+              </div>
+            </div>
           </li>
         </ul>
-
       </section>
       <section class="middle-section w-50">
-        <ul>
-          <li class="d-flex">
-            <a href="#">To-do Title</a>
-            <a href="#">Priority</a>
-            <p>Date</p>
-            <button>Mark as complete</button>
+        <div class="header flex-center text-center">
+          <h1>Todos</h1>
+        </div>
+        <!-- <div class="add-todo-btn flex-start">
+          <div class="add-btn flex-center">
+            <i class="bi bi-plus-lg"></i>
+          </div>
+          <p>Add todo</p>
+        </div> -->
+        <ul class="project-todos-wrapper">
+          <li class="flex-between todo-item">
+            <a href="#" class="todo-title">To-do Title</a>
+            <div class="flex-center text-center">
+              <i class="bi bi-flag-fill todo-priority"></i>
+              <p class="todo-due-date">Date</p>
+              <button class="complete-todo flex-center">
+                <i class="bi bi-check2-square"></i>
+              </button>
+            </div>
           </li>
         </ul>
       </section>
-      <section class="right-section d-flex flex-column w-25">
+      <section class="right-section flex-center flex-column w-25">
         <div class="right-section-form-div">
           <h2>Edit to-do</h2>
           <form action="">
-            <label for="description">To-do description</label>
-            <input type="text" name="description" id="description" class="w-100" required>
-            <label for="myDate">To-do date</label>
-            <input type="date" name="myDate" id="myDate" class="w-100">
-            <label for="todoContent">To-do Project </label>
-            <input type="text" name="todoContent" id="todoContent" class="w-100">
+            <div class="mb-1">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Title</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="mb-1">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Description</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="mb-1">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Due date</label
+              >
+              <input
+                type="date"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
+            </div>
             <p>To-do Priority</p>
-            <button>Edit to-do</button>
+            <select
+              class="form-select mb-3"
+              aria-label="Default select example"
+            >
+              <option selected>
+                <div>
+                  <span> <i class="bi bi-flag-fill"></i>Priority 1</span>
+                </div>
+              </option>
+              <option value="1">
+                <i class="bi bi-flag-fill todo-priority"></i>
+                <span>Priority 1</span>
+              </option>
+              <option value="2">
+                <i class="bi bi-flag-fill todo-priority"></i>
+                <span>Priority 1</span>
+              </option>
+              <option value="3">
+                <i class="bi bi-flag-fill todo-priority"></i>
+                <span>Priority 1</span>
+              </option>
+            </select>
+            <button class="btn btn-primary" type="submit">Edit to-do</button>
           </form>
-          <div href="#"><i class="bi bi-trash-fill"></i></div>
+          <div href="#" class="btn btn-danger mt-3">
+            <i class="bi bi-trash-fill"></i>
+          </div>
         </div>
       </section>
     </div>

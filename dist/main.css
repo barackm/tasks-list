@@ -11,7 +11,7 @@
   --fansy-font: 'Herr Von Muellerhoff', cursive;
   --default-font: 'Montserrat', sans-serif;
   --transition: all 0.5s ease;
-  --border: 1px solid #fff;
+  --border: 1px solid rgba(19, 18, 18, 0.199);
 }
 body {
   margin: 0;
@@ -21,6 +21,8 @@ body {
 }
 ul {
   padding: 0;
+  margin: 0;
+  padding-left: 0;
 }
 li {
   list-style: none;
@@ -75,5 +77,160 @@ button {
 }
 
 .right-section-form-div {
-    width: 90%;
+  width: 90%;
+}
+
+.left-section {
+  padding: 1rem;
+  border-right: var(--border);
+}
+.left-section .header {
+  width: 100%;
+  border-bottom: var(--border);
+  padding-bottom: 1rem;
+}
+
+.left-section .header h1 {
+  font-size: 1.4rem;
+}
+
+.left-section .header button {
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 0.3rem;
+}
+
+.all-project-list {
+  padding-left: 0;
+}
+
+.all-project-list li {
+  border-bottom: var(--border);
+  padding: 0.5rem 0;
+}
+
+.all-project-list .project-name {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.all-project-list .project-name:hover {
+  color: var(--primary);
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
+.project-btn-wrapper .trash-btn {
+  margin-right: 0.6rem;
+  cursor: pointer;
+}
+
+.project-b {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.project-b:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.project-btn-wrapper .trash-btn i {
+}
+
+.middle-section {
+  border-right: var(--border);
+}
+
+.middle-section .header {
+  border-bottom: var(--border);
+  padding: 1rem;
+}
+
+.middle-section .header h1 {
+  margin: 0;
+  line-height: 1;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.project-todos-wrapper {
+}
+
+.add-todo-btn {
+  padding: 1rem;
+}
+
+.add-todo-btn .add-btn {
+  width: 1.7rem;
+  cursor: pointer;
+  height: 1.6rem;
+  color: var(--primary);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.add-todo-btn .add-btn:hover {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.project-todos-wrapper {
+  padding-left: 0;
+}
+
+.complete-todo {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.complete-todo:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.todo-due-date {
+  margin: 0 0.6rem;
+}
+
+.todo-priority {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.todo-title {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.todo-title:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.project-todos-wrapper .todo-item {
+  border-bottom: var(--border);
+  padding: 0.3rem 1rem;
+}
+
+.right-section {
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  border: var(--primary) !important;
+}
+
+.primary {
+  background-color: var(--primary) !important;
 }
