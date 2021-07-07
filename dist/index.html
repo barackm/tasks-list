@@ -4,10 +4,52 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" crossorigin="anonymous"> 
+    <title>Task list</title>
   </head>
   <body>
-    <h1>hello world</h1>
+    <div class="d-flex">
+      <section class="left-section w-25">
+        <h1>All projects:</h1>
+        <button>Add new project</button>
+        <ul class="all-project-list">
+          <li>
+           <a href=""> <h5>Project name</h5></a>
+            <div href="#"><i class="bi bi-trash-fill"></i></div>
+            <div href="#" ><i class="bi bi-plus-circle-fill"></i> </div>
+          </li>
+        </ul>
+
+      </section>
+      <section class="middle-section w-50">
+        <ul>
+          <li class="d-flex">
+            <a href="#">To-do Title</a>
+            <a href="#">Priority</a>
+            <p>Date</p>
+            <button>Mark as complete</button>
+          </li>
+        </ul>
+      </section>
+      <section class="right-section d-flex flex-column w-25">
+        <div class="right-section-form-div">
+          <h2>Edit to-do</h2>
+          <form action="">
+            <label for="description">To-do description</label>
+            <input type="text" name="description" id="description" class="w-100" required>
+            <label for="myDate">To-do date</label>
+            <input type="date" name="myDate" id="myDate" class="w-100">
+            <label for="todoContent">To-do Project </label>
+            <input type="text" name="todoContent" id="todoContent" class="w-100">
+            <p>To-do Priority</p>
+            <button>Edit to-do</button>
+          </form>
+          <div href="#"><i class="bi bi-trash-fill"></i></div>
+        </div>
+      </section>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
