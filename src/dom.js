@@ -14,6 +14,42 @@ const render = (function () {
     editTodo(defaultTodo, defaultProject);
     let completeTodoBtns = document.querySelectorAll('.complete-todo');
 
+    const newTodoBtn = document.querySelector('.new-todo-btn');
+    if (newTodoBtn) {
+      newTodoBtn.addEventListener('click', () => {
+        defaultTodo = null;
+        render.updateDefaultProject(defaultProject.id || null);
+      });
+    }
+    const editTodoForm = document.querySelector('.editTodoForm');
+
+    if (editTodoForm) {
+      editTodoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.querySelector('.todo-title-input').value;
+        const description = document.querySelector('.todo-description').value;
+        const date = document.querySelector('.todo-date').value;
+        const priorityId = document.querySelector('.todo-priority-select').value;
+        const projectId = editTodoForm.getAttribute('data-project');
+        const todoId = editTodoForm.getAttribute('data-todo');
+        if (editTodoForm.getAttribute('data-editing') === 'true') {
+          todoActions.editTodos(todoId, {
+            title, description, date, priorityId, id: todoId,
+          });
+          renderToDos(defaultProject);
+          editTodo(defaultTodo, defaultProject);
+          render.updateDefaultProject(defaultProject.id || null);
+        } else {
+          todoActions.createTodo({
+            title, description, date, priorityId,
+          }, projectId);
+          renderToDos(defaultProject);
+          // editTodo(defaultTodo, defaultProject);
+          render.updateDefaultProject(defaultProject.id || null);
+        }
+      });
+    }
+
     completeTodoBtns = Array.from(completeTodoBtns);
     if (completeTodoBtns.length > 0) {
       completeTodoBtns.map((btn) => btn.addEventListener('click', (e) => {
@@ -130,7 +166,7 @@ const render = (function () {
             title, description, date, priorityId,
           }, projectId);
           renderToDos(defaultProject);
-          editTodo(defaultTodo, defaultProject);
+          // editTodo(defaultTodo, defaultProject);
           updateDefaultProject(defaultProject.id || null);
         }
       });

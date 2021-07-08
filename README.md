@@ -2,7 +2,7 @@
 
 # Tasks Manager
 
-> Task manager is website that helps you manage your tasks and projects, You have the posibility to to add Tasks to existings projects, create new projects, delete projects, modify or delete your tasks for a particular project.
+> Task manager is a website that helps you manage your tasks and projects, You can add Tasks to existing projects, create new projects, delete projects, modify or delete your tasks for a particular project.
 
 ![screenshot](./screenshot.png)
 
