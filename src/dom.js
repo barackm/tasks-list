@@ -44,7 +44,6 @@ const render = (function () {
             title, description, date, priorityId,
           }, projectId);
           renderToDos(defaultProject);
-          // editTodo(defaultTodo, defaultProject);
           render.updateDefaultProject(defaultProject.id || null);
         }
       });
@@ -166,7 +165,6 @@ const render = (function () {
             title, description, date, priorityId,
           }, projectId);
           renderToDos(defaultProject);
-          // editTodo(defaultTodo, defaultProject);
           updateDefaultProject(defaultProject.id || null);
         }
       });
