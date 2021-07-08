@@ -23,6 +23,10 @@ function renderToDos(project) {
           <button data-id=${todo.id} class="complete-todo flex-center ${todo.complete}">
             <i class="bi bi-check2-square"></i>
           </button>
+
+          <button data-id=${todo.id} class="delete-todo flex-center">
+          <i class="bi bi-trash-fill"></i>
+          </button>
           
         </div>`;
       return todoContainer.appendChild(todoItem);

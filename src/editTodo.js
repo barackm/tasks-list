@@ -3,7 +3,6 @@ export default function editTodo(todo, selectedProject) {
   const inputsWrapper = document.createElement('div');
   const welcomeMsg = document.createElement('h2');
   const currentDate = new Date().toISOString().slice(0, 10);
-  console.log(todo);
   mainContainer.innerHTML = '';
   inputsWrapper.className = 'right-section-form-div';
   const form = document.createElement('form');

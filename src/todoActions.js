@@ -15,7 +15,6 @@ class Todo {
       projectId: this.projectId,
       complete: false,
     };
-    console.log(this.data);
     if (todoList.length === 0) {
       todoList.push(newTodo);
       localStorage.setItem('todoList', JSON.stringify(todoList));
@@ -50,6 +49,13 @@ class Todo {
     localStorage.setItem('todoList', JSON.stringify(todoList));
     window.location.reload();
   }
+
+  deleteTodo() {
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+    const newTodoList = todoList.filter((todo) => todo.id.toString() !== this.data.toString());
+    localStorage.setItem('todoList', JSON.stringify(newTodoList));
+    window.location.reload();
+  }
 }
 
 const todoActions = (function () {
@@ -68,10 +74,16 @@ const todoActions = (function () {
     newTodo.completeTodo();
   };
 
+  const deleteTodo = (todoId) => {
+    const newTodo = new Todo(todoId);
+    newTodo.deleteTodo();
+  };
+
   return {
     editTodos,
     createTodo,
     completeTodo,
+    deleteTodo,
   };
 }());
 

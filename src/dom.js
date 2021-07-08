@@ -22,7 +22,23 @@ const render = (function () {
         render.updateDefaultProject(defaultProject.id);
       }));
     }
+
+    let deleteTodoBtns = document.querySelectorAll('.delete-todo');
+    deleteTodoBtns = Array.from(deleteTodoBtns);
+    if (deleteTodoBtns.length > 0) {
+      Array.from(deleteTodoBtns).forEach((todoDel) => {
+        todoDel.addEventListener('click', (e) => {
+          e.preventDefault();
+          const index = todoDel.getAttribute('data-id');
+          let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+          todoList = todoList.filter((n) => n.id.toString() !== index.toString());
+          localStorage.setItem('todoList', JSON.stringify(todoList));
+          return render.updateDefaultProject(defaultProject.id || null);
+        });
+      });
+    }
   };
+
   const updateUI = (projects) => {
     render.renderAppContent(projects);
   };
@@ -68,6 +84,22 @@ const render = (function () {
         updateDefaultProject(id);
       }));
     }
+
+    let deleteTodoBtns = document.querySelectorAll('.delete-todo');
+    deleteTodoBtns = Array.from(deleteTodoBtns);
+    if (deleteTodoBtns.length > 0) {
+      Array.from(deleteTodoBtns).forEach((todoDel) => {
+        todoDel.addEventListener('click', (e) => {
+          e.preventDefault();
+          const index = todoDel.getAttribute('data-id');
+          let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+          todoList = todoList.filter((n) => n.id.toString() !== index.toString());
+          localStorage.setItem('todoList', JSON.stringify(todoList));
+          return render.updateDefaultProject(defaultProject.id || null);
+        });
+      });
+    }
+
     const editTodoForm = document.querySelector('.editTodoForm');
     const newTodoBtn = document.querySelector('.new-todo-btn');
     if (newTodoBtn) {
@@ -92,12 +124,14 @@ const render = (function () {
           });
           renderToDos(defaultProject);
           editTodo(defaultTodo, defaultProject);
+          updateDefaultProject(defaultProject.id || null);
         } else {
           todoActions.createTodo({
             title, description, date, priorityId,
           }, projectId);
           renderToDos(defaultProject);
           editTodo(defaultTodo, defaultProject);
+          updateDefaultProject(defaultProject.id || null);
         }
       });
     }

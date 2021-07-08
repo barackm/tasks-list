@@ -217,6 +217,22 @@ button {
   margin-top: 0.5rem !important;
 }
 
+.delete-todo {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid red;
+  border-radius: 50%;
+  color: red;
+  cursor: pointer;
+  background-color: transparent;
+  margin-left: 0.8rem;
+}
+
+.delete-todo:hover {
+  background-color: red;
+  color: var(--white);
+}
+
 .complete-todo:hover {
   background-color: var(--primary);
   color: var(--white);
