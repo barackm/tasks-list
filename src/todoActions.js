@@ -13,25 +13,31 @@ class Todo {
     if (todoList.length === 0) {
       todoList.push(newTodo);
       localStorage.setItem('todoList', JSON.stringify(todoList));
+      window.location.reload();
     } else {
       todoList.push(newTodo);
       localStorage.setItem('todoList', JSON.stringify(todoList));
+      window.location.reload();
     }
   }
 
   updateTodo(todoId) {
     const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
     const todoIndex = todoList.findIndex((t) => t.id.toString() === todoId.toString());
-    todoList[todoIndex] = this.data;
+    const myTodo = todoList[todoIndex];
+    myTodo.title = this.data.title;
+    myTodo.description = this.data.description;
+    myTodo.date = this.data.date;
+    todoList[todoIndex] = myTodo;
     localStorage.setItem('todoList', JSON.stringify(todoList));
+    window.location.reload();
   }
 }
 
 const todoActions = (function () {
   const editTodos = (todoId, todo) => {
-    console.log(todoId, todo);
-    // const updateTodo = new Todo(todo);
-    // updateTodo.updateTodo(todoId);
+    const updateTodo = new Todo(todo);
+    updateTodo.updateTodo(todoId);
   };
 
   const createTodo = (todo, projectId) => {

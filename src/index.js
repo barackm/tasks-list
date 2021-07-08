@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import render from './dom';
 import helper from './helper';
 
-const defaultProject = [
+const defaultProjects = [
   {
     id: uuidv4(),
     name: 'CapstoneProject',
@@ -18,7 +18,24 @@ const defaultProject = [
 ];
 
 if (!localStorage.getItem('projectList')) {
-  localStorage.setItem('projectList', JSON.stringify(defaultProject));
+  localStorage.setItem('projectList', JSON.stringify(defaultProjects));
+}
+
+if (!localStorage.getItem('defaultProject')) {
+  const allProjects = JSON.parse(localStorage.getItem('projectList')) || [];
+  if (allProjects.length === 0) {
+    localStorage.setItem('defaultProject', null);
+  } else {
+    let todos = [];
+    let defaultProject = allProjects[0];
+    const allTodos = JSON.parse(localStorage.getItem('todoList')) || [];
+    if (allTodos.length > 0) {
+      todos = allTodos.filter((todo) => todo.projectId.toString() === defaultProject.id.toString());
+    }
+
+    defaultProject = { ...defaultProject, todos };
+    localStorage.setItem('defaultProject', JSON.stringify(defaultProject));
+  }
 }
 
 render.renderAppContent(JSON.parse(localStorage.getItem('projectList')));
@@ -62,7 +79,6 @@ if (selectProjectBtns.length > 0) {
 
 let selectTodoBtns = document.querySelectorAll('.todo-title');
 selectTodoBtns = Array.from(selectTodoBtns);
-console.log(selectTodoBtns);
 if (selectTodoBtns.length > 0) {
   selectTodoBtns.map((btn) => btn.addEventListener('click', (e) => {
     e.preventDefault();

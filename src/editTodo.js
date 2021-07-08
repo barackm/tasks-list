@@ -2,7 +2,8 @@ export default function editTodo(todo, selectedProject) {
   const mainContainer = document.querySelector('.right-section');
   const inputsWrapper = document.createElement('div');
   const welcomeMsg = document.createElement('h2');
-
+  const currentDate = new Date().toISOString().slice(0, 10);
+  console.log(todo);
   mainContainer.innerHTML = '';
   inputsWrapper.className = 'right-section-form-div';
   const form = document.createElement('form');
@@ -14,7 +15,7 @@ export default function editTodo(todo, selectedProject) {
     inputsWrapper.appendChild(welcomeMsg);
     welcomeMsg.innerHTML = todo ? 'Edit todo' : 'Create todo';
     form.setAttribute('data-editing', `${!!todo}`);
-    form.setAttribute('data-todo', `${null}`);
+    form.setAttribute('data-todo', `${todo ? todo.id : null}`);
     form.setAttribute('data-project', `${selectedProject.id}`);
     form.className = 'editTodoForm';
     form.innerHTML = `<div class="mb-1">
@@ -23,7 +24,7 @@ export default function editTodo(todo, selectedProject) {
     >
     <input
       type="text"
-      class="form-control todo-title"
+      class="form-control todo-title-input"
       value='${todo ? todo.title : ''}'
       id="exampleFormControlInput1"
       placeholder="name@example.com"
@@ -50,7 +51,7 @@ export default function editTodo(todo, selectedProject) {
     <input
       type="date"
       class="form-control todo-date"
-      
+      value=${todo ? todo.date : currentDate}
       id="exampleFormControlInput1"
       placeholder="name@example.com"
       required
@@ -75,7 +76,9 @@ export default function editTodo(todo, selectedProject) {
       <span>Priority 3</span>
     </option>
   </select>
-  <button class="btn btn-primary" type="submit">${todo ? 'Update todo' : 'Add to-do'}</button>`;
+  <button class="btn btn-primary" type="submit">${
+  todo ? 'Update todo' : 'Add to-do'
+}</button>`;
   }
 
   inputsWrapper.appendChild(welcomeMsg);
