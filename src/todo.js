@@ -19,7 +19,7 @@ function renderToDos(project) {
       todoItem.innerHTML = `<a href="#" class="todo-title" data-id='${todo.id}'>${todo.title}</a>
         <div class="flex-center text-center">
           <i class="bi bi-flag-fill todo-priority ${todo.priorityId}"></i>
-          <p class="todo-due-date">${moment(todo.date).subtract(1, 'days').calendar()}</p>
+          <p class="todo-due-date">${moment(todo.date).calendar()}</p>
           <button data-id=${todo.id} class="complete-todo flex-center ${todo.complete}">
             <i class="bi bi-check2-square"></i>
           </button>

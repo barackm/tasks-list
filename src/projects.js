@@ -3,7 +3,7 @@ export default function renderProjects(projects) {
   projectSection.innerHTML = '';
   const header = document.createElement('div');
   header.className = 'header flex-center flex-column';
-  header.innerHTML = "<h1>All projects</h1><form class='w-100 newProjectForm'><input type='text' class='form-control' id='addProjectInput' placeholder='name@example.com' required/><button class='mt-2 btn bnt-primary' type='submit'>Add new project</button></form>";
+  header.innerHTML = "<h1>All projects</h1><form class='w-100 newProjectForm'><input type='text' class='form-control' id='addProjectInput' placeholder='Ex: Project 1' required/><button class='mt-2 btn bnt-primary' type='submit'>Add new project</button></form>";
   const projectList = document.createElement('ul');
   projectList.className = 'all-project-list flex-center flex-column';
   projects.map((project) => {

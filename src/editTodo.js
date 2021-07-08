@@ -26,7 +26,7 @@ export default function editTodo(todo, selectedProject) {
       class="form-control todo-title-input"
       value='${todo ? todo.title : ''}'
       id="exampleFormControlInput1"
-      placeholder="name@example.com"
+      placeholder="Ex: Todo 1"
       required
     />
   </div>
@@ -39,7 +39,7 @@ export default function editTodo(todo, selectedProject) {
       class="form-control todo-description"
       value='${todo ? todo.description : ''}'
       id="exampleFormControlInput1"
-      placeholder="name@example.com"
+      placeholder="Ex: My description"
       required
     />
   </div>
@@ -52,7 +52,6 @@ export default function editTodo(todo, selectedProject) {
       class="form-control todo-date"
       value=${todo ? todo.date : currentDate}
       id="exampleFormControlInput1"
-      placeholder="name@example.com"
       required
     />
   </div>
