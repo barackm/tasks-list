@@ -84,4 +84,15 @@ if (selectTodoBtns.length > 0) {
     e.preventDefault();
     render.updateDefaultTodo(btn.getAttribute('data-id'));
   }));
+
+  const deleteButtons = document.querySelectorAll('.deleteTodo');
+  Array.from(deleteButtons).forEach((todoDel) => {
+    todoDel.addEventListener('click', (e) => {
+      e.preventDefault();
+      const index = e.target.parentNode.parentNode.getElementsByTagName('a')[0].getAttribute('data-id');
+      let todoList = JSON.parse(localStorage.getItem('todoList'));
+      todoList = todoList.filter((n) => n.id.toString() !== index.toString());
+      localStorage.setItem('todoList', JSON.stringify(todoList));
+    });
+  });
 }
