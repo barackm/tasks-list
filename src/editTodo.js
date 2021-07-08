@@ -7,6 +7,7 @@ export default function editTodo(todo, selectedProject) {
   inputsWrapper.className = 'right-section-form-div';
   const form = document.createElement('form');
 
+  console.log(todo);
   if (!selectedProject) {
     welcomeMsg.innerHTML = '';
     inputsWrapper.innerHTML = '<h3>Select first a project</h3>';
@@ -72,7 +73,7 @@ export default function editTodo(todo, selectedProject) {
       <span>Priority 3</span>
     </option>
   </select>
-  <button class="btn btn-primary" type="submit">Add to-do</button>`;
+  <button class="btn btn-primary" type="submit">${todo ? 'Update todo' : 'Add to-do'}</button>`;
   }
 
   inputsWrapper.appendChild(welcomeMsg);

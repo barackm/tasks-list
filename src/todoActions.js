@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 class Todo {
   constructor(data, projectId) {
     this.data = data;
@@ -5,16 +7,15 @@ class Todo {
   }
 
   addTodo() {
-    const todoList = localStorage.getItem('todoList');
-    const newTodo = { ...this.data, projectId: this.projectId };
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+    const newTodo = { id: uuidv4(), ...this.data, projectId: this.projectId };
 
-    if (todoList) {
-      const allTodos = JSON.parse(todoList).unshift(newTodo);
-      localStorage.setItem('todoList', JSON.stringify(allTodos));
+    if (todoList.length === 0) {
+      todoList.push(newTodo);
+      localStorage.setItem('todoList', JSON.stringify(todoList));
     } else {
-      const allTodos = [];
-      allTodos.push({ title: 'Smth' });
-      localStorage.setItem('todoList', JSON.stringify(allTodos));
+      todoList.push(newTodo);
+      localStorage.setItem('todoList', JSON.stringify(todoList));
     }
   }
 }
@@ -25,7 +26,7 @@ const todoActions = (function () {
   };
 
   const createTodo = (todo, projectId) => {
-    console.log('todoActions');
+    console.log(todo, projectId);
     const newTodo = new Todo(todo, projectId);
     newTodo.addTodo();
   };

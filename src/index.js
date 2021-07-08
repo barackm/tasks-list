@@ -59,3 +59,13 @@ if (selectProjectBtns.length > 0) {
     render.updateDefaultProject(btn.getAttribute('data-id'));
   }));
 }
+
+let selectTodoBtns = document.querySelectorAll('.todo-title');
+selectTodoBtns = Array.from(selectTodoBtns);
+console.log(selectTodoBtns);
+if (selectTodoBtns.length > 0) {
+  selectTodoBtns.map((btn) => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    render.updateDefaultTodo(btn.getAttribute('data-id'));
+  }));
+}

@@ -4,6 +4,7 @@ import renderToDos from './todo';
 import todoActions from './todoActions';
 
 let defaultProject = null;
+let defaultTodo = null;
 
 const render = (function () {
   const renderAppContent = (projects) => {
@@ -16,7 +17,6 @@ const render = (function () {
   };
 
   const updateDefaultProject = (id) => {
-    console.log('dom.js');
     const projects = JSON.parse(localStorage.getItem('projectList'));
     const project = projects.find((f) => f.id.toString() === id);
     defaultProject = project;
@@ -28,6 +28,15 @@ const render = (function () {
     defaultProject = { ...defaultProject, todos };
     renderToDos(defaultProject);
     editTodo(null, defaultProject);
+
+    let selectTodoBtns = document.querySelectorAll('.todo-title');
+    selectTodoBtns = Array.from(selectTodoBtns);
+    if (selectTodoBtns.length > 0) {
+      selectTodoBtns.map((btn) => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        render.updateDefaultTodo(btn.getAttribute('data-id'));
+      }));
+    }
 
     const editTodoForm = document.querySelector('.editTodoForm');
     if (editTodoForm) {
@@ -45,18 +54,30 @@ const render = (function () {
             title, description, date, priorityId,
           });
           renderToDos(defaultProject);
-          editTodo(null, defaultProject);
+          editTodo(defaultTodo, defaultProject);
         } else {
           todoActions.createTodo({
             title, description, date, priorityId,
           }, projectId);
           renderToDos(defaultProject);
-          editTodo(null, defaultProject);
+          editTodo(defaultTodo, defaultProject);
         }
       });
     }
   };
-  return { renderAppContent, updateUI, updateDefaultProject };
+
+  function updateDefaultTodo(id) {
+    // console.log(todo);
+    const allTodos = JSON.parse(localStorage.getItem('todoList')) || [];
+    const todo = allTodos.find((t) => t.id.toString() === id.toString());
+    defaultTodo = todo;
+    renderToDos(defaultProject);
+    editTodo(defaultTodo, defaultProject);
+  }
+
+  return {
+    renderAppContent, updateUI, updateDefaultProject, updateDefaultTodo,
+  };
 }());
 
 export default render;

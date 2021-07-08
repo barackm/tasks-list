@@ -1,5 +1,4 @@
 function renderToDos(project) {
-  console.log('todo.js');
   const todoSection = document.querySelector('.middle-section');
   todoSection.innerHTML = '';
   const header = document.createElement('div');
@@ -13,7 +12,7 @@ function renderToDos(project) {
     project.todos.map((todo) => {
       const todoItem = document.createElement('li');
       todoItem.className = 'flex-between todo-item';
-      todo.innerHTML = `<a href="#" class="todo-title">${todo.title}</a>
+      todoItem.innerHTML = `<a href="#" class="todo-title" data-id='${todo.id}'>${todo.title}</a>
         <div class="flex-center text-center">
           <i class="bi bi-flag-fill todo-priority ${todo.priority}"></i>
           <p class="todo-due-date">${todo.date}</p>
