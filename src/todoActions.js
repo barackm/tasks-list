@@ -18,15 +18,23 @@ class Todo {
       localStorage.setItem('todoList', JSON.stringify(todoList));
     }
   }
+
+  updateTodo(todoId) {
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+    const todoIndex = todoList.findIndex((t) => t.id.toString() === todoId.toString());
+    todoList[todoIndex] = this.data;
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+  }
 }
 
 const todoActions = (function () {
-  const editTodos = (id) => {
-    console.log('editing todo', id);
+  const editTodos = (todoId, todo) => {
+    console.log(todoId, todo);
+    // const updateTodo = new Todo(todo);
+    // updateTodo.updateTodo(todoId);
   };
 
   const createTodo = (todo, projectId) => {
-    console.log(todo, projectId);
     const newTodo = new Todo(todo, projectId);
     newTodo.addTodo();
   };

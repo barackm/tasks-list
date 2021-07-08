@@ -37,42 +37,41 @@ const render = (function () {
         render.updateDefaultTodo(btn.getAttribute('data-id'));
       }));
     }
-
-    const editTodoForm = document.querySelector('.editTodoForm');
-    if (editTodoForm) {
-      editTodoForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const title = document.querySelector('.todo-title').value;
-        const description = document.querySelector('.todo-description').value;
-        const date = document.querySelector('.todo-date').value;
-        const priorityId = document.querySelector('.todo-priority').value;
-        const projectId = editTodoForm.getAttribute('data-project');
-        const todoId = editTodoForm.getAttribute('data-todo');
-
-        if (editTodoForm.getAttribute('data-editing') === 'true') {
-          todoActions.editTodos(todoId, {
-            title, description, date, priorityId,
-          });
-          renderToDos(defaultProject);
-          editTodo(defaultTodo, defaultProject);
-        } else {
-          todoActions.createTodo({
-            title, description, date, priorityId,
-          }, projectId);
-          renderToDos(defaultProject);
-          editTodo(defaultTodo, defaultProject);
-        }
-      });
-    }
   };
 
   function updateDefaultTodo(id) {
-    // console.log(todo);
     const allTodos = JSON.parse(localStorage.getItem('todoList')) || [];
     const todo = allTodos.find((t) => t.id.toString() === id.toString());
     defaultTodo = todo;
     renderToDos(defaultProject);
     editTodo(defaultTodo, defaultProject);
+  }
+
+  const editTodoForm = document.querySelector('.editTodoForm');
+  if (editTodoForm) {
+    editTodoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.querySelector('.todo-title').value;
+      const description = document.querySelector('.todo-description').value;
+      const date = document.querySelector('.todo-date').value;
+      const priorityId = document.querySelector('.todo-priority').value;
+      const projectId = editTodoForm.getAttribute('data-project');
+      const todoId = editTodoForm.getAttribute('data-todo');
+
+      if (editTodoForm.getAttribute('data-editing') === 'true') {
+        todoActions.editTodos(todoId, {
+          title, description, date, priorityId, id: todoId,
+        });
+        renderToDos(defaultProject);
+        editTodo(defaultTodo, defaultProject);
+      } else {
+        todoActions.createTodo({
+          title, description, date, priorityId,
+        }, projectId);
+        renderToDos(defaultProject);
+        editTodo(defaultTodo, defaultProject);
+      }
+    });
   }
 
   return {

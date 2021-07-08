@@ -7,7 +7,6 @@ export default function editTodo(todo, selectedProject) {
   inputsWrapper.className = 'right-section-form-div';
   const form = document.createElement('form');
 
-  console.log(todo);
   if (!selectedProject) {
     welcomeMsg.innerHTML = '';
     inputsWrapper.innerHTML = '<h3>Select first a project</h3>';
@@ -28,6 +27,7 @@ export default function editTodo(todo, selectedProject) {
       value='${todo ? todo.title : ''}'
       id="exampleFormControlInput1"
       placeholder="name@example.com"
+      required
     />
   </div>
   <div class="mb-1">
@@ -40,6 +40,7 @@ export default function editTodo(todo, selectedProject) {
       value='${todo ? todo.description : ''}'
       id="exampleFormControlInput1"
       placeholder="name@example.com"
+      required
     />
   </div>
   <div class="mb-1">
@@ -52,6 +53,7 @@ export default function editTodo(todo, selectedProject) {
       
       id="exampleFormControlInput1"
       placeholder="name@example.com"
+      required
     />
   </div>
   <p>To-do Priority</p>
