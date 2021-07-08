@@ -59,19 +59,19 @@ export default function editTodo(todo, selectedProject) {
   </div>
   <p>To-do Priority</p>
   <select
-    class="form-select mb-3 todo-priority"
+    class="form-select mb-3 todo-priority-select"
     aria-label="Default select example"
-    value=${'2'}
+    value=${todo ? todo.priorityId : ''}
     >
-    <option value="1" >
+    <option value="priority1" >
       <i class="bi bi-flag-fill todo-priority"></i>
       <span>Priority 1</span>
     </option>
-    <option value="2" >
+    <option value="priority2" >
       <i class="bi bi-flag-fill todo-priority"></i>
       <span>Priority 2</span>
     </option>
-    <option value="3">
+    <option value="priority3">
       <i class="bi bi-flag-fill todo-priority"></i>
       <span>Priority 3</span>
     </option>

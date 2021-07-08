@@ -12,6 +12,16 @@ const render = (function () {
     renderProjects(projects);
     renderToDos(defaultProject);
     editTodo(defaultTodo, defaultProject);
+    let completeTodoBtns = document.querySelectorAll('.complete-todo');
+
+    completeTodoBtns = Array.from(completeTodoBtns);
+    if (completeTodoBtns.length > 0) {
+      completeTodoBtns.map((btn) => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        todoActions.completeTodo(btn.getAttribute('data-id'));
+        render.updateDefaultProject(defaultProject.id);
+      }));
+    }
   };
   const updateUI = (projects) => {
     render.renderAppContent(projects);
@@ -28,8 +38,13 @@ const render = (function () {
     }
     myDefaultProject = { ...myDefaultProject, todos };
     localStorage.setItem('defaultProject', JSON.stringify(myDefaultProject));
+    const previousProject = defaultProject;
     renderToDos(myDefaultProject);
-    editTodo(defaultTodo, myDefaultProject);
+    if (previousProject.id === project.id) {
+      editTodo(defaultTodo, myDefaultProject);
+    } else {
+      editTodo(null, myDefaultProject);
+    }
     defaultProject = myDefaultProject;
 
     let selectTodoBtns = document.querySelectorAll('.todo-title');
@@ -41,17 +56,36 @@ const render = (function () {
         render.updateDefaultTodo(btn.getAttribute('data-id'));
       }));
     }
+
+    let completeTodoBtns = document.querySelectorAll('.complete-todo');
+
+    completeTodoBtns = Array.from(completeTodoBtns);
+    if (completeTodoBtns.length > 0) {
+      completeTodoBtns.map((btn) => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        todoActions.completeTodo(btn.getAttribute('data-id'));
+        renderProjects(projects);
+        updateDefaultProject(id);
+      }));
+    }
     const editTodoForm = document.querySelector('.editTodoForm');
+    const newTodoBtn = document.querySelector('.new-todo-btn');
+    if (newTodoBtn) {
+      newTodoBtn.addEventListener('click', () => {
+        defaultTodo = null;
+        updateDefaultProject(id);
+      });
+    }
+
     if (editTodoForm) {
       editTodoForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const title = document.querySelector('.todo-title-input').value;
         const description = document.querySelector('.todo-description').value;
         const date = document.querySelector('.todo-date').value;
-        const priorityId = document.querySelector('.todo-priority').value;
+        const priorityId = document.querySelector('.todo-priority-select').value;
         const projectId = editTodoForm.getAttribute('data-project');
         const todoId = editTodoForm.getAttribute('data-todo');
-
         if (editTodoForm.getAttribute('data-editing') === 'true') {
           todoActions.editTodos(todoId, {
             title, description, date, priorityId, id: todoId,
@@ -70,7 +104,6 @@ const render = (function () {
   };
 
   function updateDefaultTodo(id) {
-    defaultTodo = defaultTodo && null;
     const allTodos = JSON.parse(localStorage.getItem('todoList')) || [];
     const todo = allTodos.find((t) => t.id.toString() === id.toString());
     defaultTodo = todo;

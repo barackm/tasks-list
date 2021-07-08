@@ -161,6 +161,7 @@ button {
 .middle-section .header {
   border-bottom: var(--border);
   padding: 1rem;
+  flex-direction: column;
 }
 
 .middle-section .header h1 {
@@ -205,7 +206,28 @@ button {
   background-color: transparent;
 }
 
+.new-todo-btn {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+  background-color: transparent;
+  margin-top: 0.5rem !important;
+}
+
 .complete-todo:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.complete-todo.true {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.new-todo-btn:hover {
   background-color: var(--primary);
   color: var(--white);
 }
@@ -249,4 +271,11 @@ button {
 
 .primary {
   background-color: var(--primary) !important;
+}
+
+.todo-priority.priority2 {
+  color: blue;
+}
+.todo-priority.priority3 {
+  color: green;
 }

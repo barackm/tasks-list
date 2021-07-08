@@ -14,9 +14,6 @@ export default function renderProjects(projects) {
     <a class="project-b flex-center trash-btn remove-project-btn" data-id='${project.id}'href="#">
       <i class="bi bi-trash-fill"></i>
     </a>
-    <a class="project-b flex-center add-todo-btn" href="#">
-      <i class="bi bi-plus-lg"></i>
-    </a>
   </div>`;
     return projectList.appendChild(projectItem);
   });

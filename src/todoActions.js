@@ -8,8 +8,14 @@ class Todo {
 
   addTodo() {
     const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
-    const newTodo = { id: uuidv4(), ...this.data, projectId: this.projectId };
-
+    const newTodo = {
+      id: uuidv4(),
+      ...this.data,
+      priorityId: this.data.priorityId,
+      projectId: this.projectId,
+      complete: false,
+    };
+    console.log(this.data);
     if (todoList.length === 0) {
       todoList.push(newTodo);
       localStorage.setItem('todoList', JSON.stringify(todoList));
@@ -28,6 +34,18 @@ class Todo {
     myTodo.title = this.data.title;
     myTodo.description = this.data.description;
     myTodo.date = this.data.date;
+    myTodo.priorityId = this.data.priorityId;
+    myTodo.complete = this.data.complete;
+    todoList[todoIndex] = myTodo;
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    window.location.reload();
+  }
+
+  completeTodo() {
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+    const todoIndex = todoList.findIndex((t) => t.id.toString() === this.data.toString());
+    const myTodo = todoList[todoIndex];
+    myTodo.complete = !myTodo.complete;
     todoList[todoIndex] = myTodo;
     localStorage.setItem('todoList', JSON.stringify(todoList));
     window.location.reload();
@@ -45,9 +63,15 @@ const todoActions = (function () {
     newTodo.addTodo();
   };
 
+  const completeTodo = (todoId) => {
+    const newTodo = new Todo(todoId);
+    newTodo.completeTodo();
+  };
+
   return {
     editTodos,
     createTodo,
+    completeTodo,
   };
 }());
 
