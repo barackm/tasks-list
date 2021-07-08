@@ -13,7 +13,7 @@ class Todo {
       localStorage.setItem('todoList', JSON.stringify(allTodos));
     } else {
       const allTodos = [];
-      allTodos.push(newTodo);
+      allTodos.push({ title: 'Smth' });
       localStorage.setItem('todoList', JSON.stringify(allTodos));
     }
   }
@@ -25,6 +25,7 @@ const todoActions = (function () {
   };
 
   const createTodo = (todo, projectId) => {
+    console.log('todoActions');
     const newTodo = new Todo(todo, projectId);
     newTodo.addTodo();
   };

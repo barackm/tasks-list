@@ -16,10 +16,15 @@ const render = (function () {
   };
 
   const updateDefaultProject = (id) => {
+    console.log('dom.js');
     const projects = JSON.parse(localStorage.getItem('projectList'));
     const project = projects.find((f) => f.id.toString() === id);
     defaultProject = project;
-    const todos = [];
+    const allTodos = JSON.parse(localStorage.getItem('todoList')) || [];
+    let todos = [];
+    if (allTodos.length > 0) {
+      todos = allTodos.filter((todo) => todo.projectId.toString() === project.id.toString());
+    }
     defaultProject = { ...defaultProject, todos };
     renderToDos(defaultProject);
     editTodo(null, defaultProject);

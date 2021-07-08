@@ -1,4 +1,5 @@
 function renderToDos(project) {
+  console.log('todo.js');
   const todoSection = document.querySelector('.middle-section');
   todoSection.innerHTML = '';
   const header = document.createElement('div');
