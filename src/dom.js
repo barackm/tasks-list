@@ -164,7 +164,7 @@ const render = (function () {
           todoActions.createTodo({
             title, description, date, priorityId,
           }, projectId);
-          renderToDos(defaultProject)
+          renderToDos(defaultProject);
           updateDefaultProject(defaultProject.id || null);
         }
       });
