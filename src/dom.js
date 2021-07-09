@@ -177,7 +177,7 @@ const render = (() => {
     defaultTodo = todo;
     editTodo(defaultTodo, defaultProject);
     updateDefaultProject(defaultProject.id);
-  }
+  };
 
   return {
     renderAppContent, updateUI, updateDefaultProject, updateDefaultTodo,
