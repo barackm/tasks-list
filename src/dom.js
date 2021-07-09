@@ -171,7 +171,7 @@ const render = (() => {
     }
   };
 
-  function updateDefaultTodo(id) {
+  const updateDefaultTodo = (id) => {
     const allTodos = JSON.parse(localStorage.getItem('todoList')) || [];
     const todo = allTodos.find((t) => t.id.toString() === id.toString());
     defaultTodo = todo;
