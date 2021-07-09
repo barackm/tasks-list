@@ -4,7 +4,7 @@ import render from './dom';
 const NewProject = (name) => {
   this.id = uuidv4();
   this.name = name;
-}
+};
 
 const helper = (() => {
   const addProject = (name) => {
