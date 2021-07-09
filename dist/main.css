@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
+:root {
+  --white: #fff;
+  --dark: rgba(38, 38, 38, 0.95);
+  --primary: rgb(255, 167, 66);
+  --box-shaddow: 0 0 15px rgba(0, 0, 0, 0.4);
+  --fansy-font: 'Herr Von Muellerhoff', cursive;
+  --default-font: 'Montserrat', sans-serif;
+  --transition: all 0.5s ease;
+  --border: 1px solid rgba(19, 18, 18, 0.199);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--default-font);
+  transition: var(--transition);
+}
+ul {
+  padding: 0;
+  margin: 0;
+  padding-left: 0;
+}
+li {
+  list-style: none;
+}
+h1 {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.text-center {
+  text-align: center;
+}
+.d-none {
+  display: none;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.m-0 {
+  margin: 0;
+}
+.w-10 {
+  width: 100%;
+}
+.align-start {
+  align-items: flex-start;
+}
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+button {
+  border: none;
+}
+
+.app-main-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.right-section-form-div {
+  width: 90%;
+}
+
+.left-section {
+  padding: 1rem;
+  border-right: var(--border);
+  overflow-y: auto;
+}
+.left-section .header {
+  width: 100%;
+  border-bottom: var(--border);
+  padding-bottom: 1rem;
+}
+
+.left-section .header h1 {
+  font-size: 1.4rem;
+}
+
+.left-section .header button {
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 0.3rem;
+}
+
+.all-project-list {
+  padding-left: 0;
+}
+
+.all-project-list li {
+  border-bottom: var(--border);
+  padding: 0.5rem 0;
+}
+
+.all-project-list .project-name {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.all-project-list .project-name:hover {
+  color: var(--primary);
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
+.project-btn-wrapper .trash-btn {
+  margin-right: 0.6rem;
+  cursor: pointer;
+}
+
+.project-b {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.project-b:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.project-btn-wrapper .trash-btn i {
+}
+
+.middle-section {
+  border-right: var(--border);
+  overflow-y: auto;
+}
+
+.middle-section .header {
+  border-bottom: var(--border);
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.middle-section .header h1 {
+  margin: 0;
+  line-height: 1;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.project-todos-wrapper {
+}
+
+.add-todo-btn {
+  padding: 1rem;
+}
+
+.add-todo-btn .add-btn {
+  width: 1.7rem;
+  cursor: pointer;
+  height: 1.6rem;
+  color: var(--primary);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.add-todo-btn .add-btn:hover {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.project-todos-wrapper {
+  padding-left: 0;
+}
+
+.complete-todo {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.new-todo-btn {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+  background-color: transparent;
+  margin-top: 0.5rem !important;
+}
+
+.delete-todo {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid red;
+  border-radius: 50%;
+  color: red;
+  cursor: pointer;
+  background-color: transparent;
+  margin-left: 0.8rem;
+}
+
+.delete-todo:hover {
+  background-color: red;
+  color: var(--white);
+}
+
+.complete-todo:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.complete-todo.true {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.new-todo-btn:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.todo-due-date {
+  margin: 0 0.6rem;
+}
+
+.todo-priority {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.todo-title {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.todo-title:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.project-todos-wrapper .todo-item {
+  border-bottom: var(--border);
+  padding: 0.3rem 1rem;
+}
+
+.right-section {
+  overflow-y: auto;
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  border: var(--primary) !important;
+}
+
+.btn-primary:hover {
+  background-color: darken(rgb(255, 167, 66), 10%) !important;
+}
+
+.primary {
+  background-color: var(--primary) !important;
+}
+
+.todo-priority.priority2 {
+  color: blue;
+}
+.todo-priority.priority3 {
+  color: green;
+}
