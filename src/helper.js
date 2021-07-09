@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import render from './dom';
 
-function NewProject(name) {
+const NewProject = (name) => {
   this.id = uuidv4();
   this.name = name;
 }
