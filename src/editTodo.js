@@ -1,4 +1,4 @@
-export default function editTodo(todo, selectedProject) {
+const editTodo = (todo, selectedProject) => {
   const mainContainer = document.querySelector('.right-section');
   const inputsWrapper = document.createElement('div');
   const welcomeMsg = document.createElement('h2');
@@ -82,4 +82,6 @@ export default function editTodo(todo, selectedProject) {
   inputsWrapper.appendChild(welcomeMsg);
   inputsWrapper.appendChild(form);
   mainContainer.appendChild(inputsWrapper);
-}
+};
+
+export default editTodo;

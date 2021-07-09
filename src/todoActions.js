@@ -58,7 +58,7 @@ class Todo {
   }
 }
 
-const todoActions = (function () {
+const todoActions = (() => {
   const editTodos = (todoId, todo) => {
     const updateTodo = new Todo(todo);
     updateTodo.updateTodo(todoId);
@@ -85,6 +85,6 @@ const todoActions = (function () {
     completeTodo,
     deleteTodo,
   };
-}());
+})();
 
 export default todoActions;

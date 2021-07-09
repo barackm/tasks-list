@@ -1,4 +1,4 @@
-export default function renderProjects(projects) {
+const renderProjects = (projects) => {
   const projectSection = document.querySelector('.left-section');
   projectSection.innerHTML = '';
   const header = document.createElement('div');
@@ -19,4 +19,5 @@ export default function renderProjects(projects) {
   });
   projectSection.appendChild(header);
   projectSection.appendChild(projectList);
-}
+};
+export default renderProjects;

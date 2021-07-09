@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import render from './dom';
 import helper from './helper';
+import '../dist/main.css';
 
 const defaultProjects = [
   {
