@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-function renderToDos(project) {
+const renderToDos = (project) => {
   const todoSection = document.querySelector('.middle-section');
   todoSection.innerHTML = '';
   const header = document.createElement('div');
@@ -34,6 +34,6 @@ function renderToDos(project) {
   }
   todoSection.appendChild(header);
   todoSection.appendChild(todoContainer);
-}
+};
 
 export default renderToDos;

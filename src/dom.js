@@ -7,7 +7,7 @@ const storedDefaultProject = JSON.parse(localStorage.getItem('defaultProject'));
 let defaultProject = storedDefaultProject || null;
 let defaultTodo = null;
 
-const render = (function () {
+const render = (() => {
   const renderAppContent = (projects) => {
     renderProjects(projects);
     renderToDos(defaultProject);
@@ -182,6 +182,6 @@ const render = (function () {
   return {
     renderAppContent, updateUI, updateDefaultProject, updateDefaultTodo,
   };
-}());
+})();
 
 export default render;

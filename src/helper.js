@@ -6,7 +6,7 @@ function NewProject(name) {
   this.name = name;
 }
 
-const helper = (function () {
+const helper = (() => {
   const addProject = (name) => {
     const project = new NewProject(name);
     const allProjects = JSON.parse(localStorage.getItem('projectList'));
@@ -27,6 +27,6 @@ const helper = (function () {
   return {
     addProject, removeProject,
   };
-}());
+})();
 
 export default helper;
