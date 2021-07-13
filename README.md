@@ -28,6 +28,10 @@ To bundle and transpile the javascript code using webpack run:
 
 Now you can open up the index.html file (located in the dist directory in chrome) to see the result.
 
+## Run the tests
+
+To run the tests that are located in the spec folder just run `npm test`
+
 ## Authors
 
 👤 **Barack Mukelenga**
