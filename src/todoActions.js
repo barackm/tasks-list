@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-class Todo {
+export class Todo {
   constructor(data, projectId) {
     this.data = data;
     this.projectId = projectId;

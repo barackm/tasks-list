@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import render from './dom';
 
-function NewProject(name) {
+export function NewProject(name) {
   this.id = uuidv4();
   this.name = name;
 }
@@ -9,7 +9,7 @@ function NewProject(name) {
 const helper = (() => {
   const addProject = (name) => {
     const project = new NewProject(name);
-    const allProjects = JSON.parse(localStorage.getItem('projectList'));
+    const allProjects = JSON.parse(localStorage.getItem('projectList')) || [];
     allProjects.unshift(project);
     localStorage.setItem('projectList', JSON.stringify(allProjects));
     render.updateUI(JSON.parse(localStorage.getItem('projectList')));
@@ -17,15 +17,19 @@ const helper = (() => {
   };
 
   const removeProject = (id) => {
-    let allProjects = JSON.parse(localStorage.getItem('projectList'));
+    let allProjects = JSON.parse(localStorage.getItem('projectList')) || [];
     allProjects = allProjects.filter((project) => project.id.toString() !== id);
     localStorage.setItem('projectList', JSON.stringify(allProjects));
     render.updateUI(JSON.parse(localStorage.getItem('projectList')));
     window.location.reload();
   };
 
+  const getProjects = () => JSON.parse(localStorage.getItem('projectList')) || [];
+
   return {
-    addProject, removeProject,
+    addProject,
+    removeProject,
+    getProjects,
   };
 })();
 
