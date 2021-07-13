@@ -2,9 +2,7 @@
  * @jest-environment jsdom
  */
 
-import {
-  expect, it, jest,
-} from '@jest/globals';
+import { expect, it, jest } from '@jest/globals';
 import editTodo from '../src/editTodo';
 
 import '@testing-library/jest-dom/extend-expect';
@@ -23,7 +21,8 @@ describe('Calling edit todo ', () => {
       inputsWrapper.className = 'right-section-form-div';
       if (!selectedProject) {
         welcomeMsg.innerHTML = '';
-        inputsWrapper.innerHTML = '<h3 class="edit_todo_title">Select first a project</h3>';
+        inputsWrapper.innerHTML =
+          '<h3 class="edit_todo_title">Select first a project</h3>';
         inputsWrapper.appendChild(welcomeMsg);
         mainContainer.appendChild(inputsWrapper);
       }
