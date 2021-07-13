@@ -9,7 +9,7 @@ const editTodo = (todo, selectedProject) => {
 
   if (!selectedProject) {
     welcomeMsg.innerHTML = '';
-    inputsWrapper.innerHTML = '<h3>Select first a project</h3>';
+    inputsWrapper.innerHTML = '<h3 class="edit_todo_title">Select first a project</h3>';
   } else {
     inputsWrapper.appendChild(welcomeMsg);
     welcomeMsg.innerHTML = todo ? 'Edit todo' : 'Create todo';
